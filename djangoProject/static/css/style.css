@@ -1,0 +1,26 @@
+body{
+    background-image: url("../image/LibraryBackground.png");
+    margin: 0;
+}
+
+h5{
+    color: white;
+}
+img{
+    z-index: -1;
+}
+.hello{
+    background-image: url(../image/LibraryBackground.png);
+     background-size: cover;
+}
+.success , .error{
+    list-style: none;
+    background-color: #D4AD81;
+    color: white;
+    box-shadow: #1b1b1b 12px 12px 12px;
+    text-align: center;
+    height: 40px;
+    font-size: 20px;
+    padding: 15px;
+
+}

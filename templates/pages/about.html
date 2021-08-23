@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <style>
+        table, th, td {
+            border: 2px solid #000000;
+            font-size: 25px;
+            font-weight: bolder;
+            background-color: rgb(245, 215, 107);
+
+        }
+    </style>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <h1 style="color: white;font-size: 40px;text-align: center" id="h">
+
+    </h1>
+    <br>
+    <table id="p" style="width: 70%;margin: auto">
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+    </table>
+    <script>
+        function load() {
+            const XML = new XMLHttpRequest();
+            XML.open("GET", "http://127.0.0.1:8000/static/about.html");
+            XML.responseType = "document";
+            XML.onload = () => {
+                if (XML.readyState === 4 && XML.status === 200) {
+                    document.getElementById('p').innerHTML = XML.responseXML.getElementById('p').innerHTML
+                    document.getElementById('h').innerHTML = XML.responseXML.getElementById('h').innerHTML;
+
+                }
+            }
+            XML.send();
+        }
+
+        load();
+    </script>
+{% endblock content %}
+</body>
+</html>

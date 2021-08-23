@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signUpStyle.css' %}">
+    <script>
+        function validation() {
+            if (document.forms.name.value == ""||document.forms.email.value == ""||document.forms.password.value == ""||document.forms.secondPassword.value == "") {
+                alert("Please enter The required inputs")
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+{% block content %}
+    {% if messages %}
+        <ul class="messages ">
+            {% for m in messages %}
+                <li {% if m.tags %}class="{{ m.tags }}"{% endif %}>{{ m }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="container">
+
+        <div class="speach">
+            <h1>Cloud Library</h1>
+            <h3>"Bad libraries build collections, good libraries build services, great libraries build communities"</h3>
+            <div class="backBtn">
+                <i class="fas fa-arrow-left" id="back"></i>
+                <a href="{% url 'getStart' %}" id="back">Back </a>
+            </div>
+        </div>
+        <div class="dataIn">
+            <form name="forms" method="POST">
+                {% csrf_token %}
+                <h1 class="cloud">Cloud</h1>
+                <div class="in">
+                    <i class="fas fa-user"></i>
+                    <input placeholder="Name" type="text" name="name" >
+                </div>
+                <div class="in">
+                    <i class="fas fa-envelope"></i>
+                    <input placeholder="Email" type="email" name="email" >
+                </div>
+                <div class="in">
+                    <i class="fas fa-lock"></i>
+                    <input placeholder="Password" type="password" name="password"  maxlength="15" minlength="8">
+                </div>
+                <div class="in">
+                    <i class="fas fa-lock"></i>
+                    <input placeholder="Confirm password" type="password" name="secondPassword"  maxlength="15"
+                           minlength="8">
+                </div>
+                <button onmousedown="validation()" class="signUp">Sign Up</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+</body>
+</html>

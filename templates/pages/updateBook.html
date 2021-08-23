@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update a Book</title>
+    <style>
+        * {
+            font-family: Century Gothic, serif;
+        }
+
+
+        .title {
+            margin-top: 100px;
+            text-align: left;
+            margin-left: 115px;
+            font-size: 5vh;
+            font-weight: bolder;
+            margin-bottom: 70px;
+
+        }
+
+        .regs {
+            text-align: right;
+            align-items: flex-end;
+            box-sizing: border-box;
+            font-size: 32px;
+            margin-right: 170px;
+
+        }
+
+        form {
+            top: 40vh;
+            left: 45vw;
+            margin: 50px 2% 2%;
+        }
+
+        div {
+            margin: 12px;
+        }
+
+        .feld:focus {
+            outline: none;
+        }
+
+        .feld {
+            margin-bottom: 20px;
+            border-radius: 25px;
+            width: 40%;
+            border: 2px solid rgb(180, 180, 180);
+            text-align: left;
+            margin-left: 10%;
+            font-size: 20px;
+            padding: 1% 1.5%;
+        }
+
+        button {
+            font-size: 20px;
+            font-weight: bolder;
+            height: 45px;
+            width: 20%;
+            background-image: linear-gradient(to right, #FFDD63, #a8a8a8);
+            cursor: pointer;
+            box-shadow: 0 0 20px gray;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property: box-shadow, transform;
+            color: #fff;
+            border-radius: 30px;
+            margin-right: 10%;
+        }
+    </style>
+    <script>
+        function validation() {
+            if (document.forms.oldIsbn.value == "" || document.forms.newIsbn.value == "" || document.forms.date.value == "" || document.forms.author.value == "") {
+                alert("Please enter The required inputs")
+            }
+
+        }
+    </script>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <header>
+        <div class="title">
+            <h1>Update a Book</h1>
+        </div>
+
+
+        </div>
+    </header>
+    <form name="forms" method="post" class="regs">
+        {% csrf_token %}
+        <input name="oldIsbn" placeholder="Current ISBN" type="text" required class="feld"> <br>
+        <input name="newIsbn" placeholder="New ISBN" type="text" required class="feld"> <br>
+        <input name="date" type="date" required class="feld"> <br>
+        <input name="author" placeholder="Auther" type="text" required class="feld"> <br>
+        <br>
+        <button onmousedown="validation()" class="login">Update</button>
+    </form>
+
+{% endblock content %}
+</body>
+</html>

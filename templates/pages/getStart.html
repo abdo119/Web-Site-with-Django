@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Start</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+       }
+
+        .custom1{
+            font-family: Montserrat, serif;
+            font-size: 80px;
+            margin: 50px 100px 50px 100px ;
+            text-transform: uppercase;
+            background: linear-gradient( black 42%, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bolder;
+        }
+        .body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom2{
+            font-family: "Century Gothic",serif;
+            color: white;
+            font-size: 70px;
+            margin: 0 100px 30px 550px;
+            transform: translate(-50%, -50%);
+        }
+        .custom3{
+            margin: 0 100px 0 550px;
+            font-family: "Century Gothic", serif;
+            color: white;
+            text-align:center ;
+            font-size: 25px;
+            font-weight: lighter;
+            transform: translate(-50%, -50%);
+        }
+
+        .custom4{
+            margin: 0 100px 0 550px;
+            font-family: "Century Gothic", serif;
+            color: white;
+            text-align:center ;
+            font-weight: lighter;
+            font-size: 25px;
+            transform: translate(-50%, -50%);
+        }
+        .custom5{
+            margin: 0 100px 50px 550px;
+            font-family: "Century Gothic", serif;
+            color: white;
+            text-align:center ;
+            font-weight: lighter;
+            font-size: 25px;
+            transform: translate(-50%, -50%);
+        }
+        .button{
+            cursor: pointer;
+            background: #FFDD63;
+            outline: none;
+            margin: 0 30px 10px;
+            height: 50px;
+            width: 20%;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: bolder;
+            color: white;
+            box-shadow: 0 0 20px gray;
+            -webkit-transition-duration: 0.8s;
+            transition-duration: 0.8s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property: box-shadow, transform;
+        }
+        button:hover,button:focus,button:active
+        {    box-shadow: 0 0 30px gray;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+    </style>
+    {% extends 'base2.html' %}
+</head>
+<body>
+{% block content %}
+    <header>
+    <div class="body">
+        <h1 class="custom1">WELCOME TO</h1>
+        <h2 class="custom2">Cloud Library</h2>
+        <h3 class="custom3">"Bad libraries build collections, good</h3>
+        <h4 class="custom4">libraries build services, great libraries</h4>
+        <h5 class="custom5">build communities."</h5>
+        <button onclick="window.location.href='{% url 'login' %}'" class="button">Get Started</button>
+    </div>
+</header>
+{% endblock content %}
+
+</body>
+</html>

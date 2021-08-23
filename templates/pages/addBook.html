@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding a Book</title>
+    <style>
+
+
+        .title {
+            margin-top: 100px;
+            text-align: left;
+            margin-left: 115px;
+            font-size: 35px;
+            font-weight: bolder;
+            margin-bottom: 70px;
+
+        }
+
+        .regs {
+            text-align: right;
+            align-items: start;
+            box-sizing: border-box;
+            font-size: 32px;
+            margin-right: 120px;
+
+        }
+
+        form {
+            top: 40vh;
+            left: 45vw;
+            margin: 50px 2% 2%;
+        }
+
+        div {
+            margin: 12px;
+        }
+
+        input {
+            padding: .5em;
+            width: 35%;
+            border: solid 1px #000;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #FFE87C;
+            color: black;
+            padding: 0.3em;
+            border-radius: 10px;
+            font-size: 25px;
+            width: 15%;
+            margin-right: 10px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+
+        form div {
+            margin-right: 14%;
+        }
+
+
+        .feld {
+            display: inline-block;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            background-color: #FFE87C;
+            color: #000;
+            margin-bottom: 40px;
+            width: 540px;
+            border-radius: 25px;
+            padding: 0.7em 0.7em 0.7em 2%;
+        }
+
+    </style>
+    <script>
+        function validation() {
+            if (document.forms.isbn.value == "" || document.forms.date.value == "" || document.forms.author.value == "" || document.forms.image.value == "") {
+                alert("Please enter The required inputs")
+            }
+
+        }
+    </script>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <header>
+        <div class="title">
+            <h1>Add a New Book</h1>
+        </div>
+
+    </header>
+    <form name="forms" method="post" class="regs">
+        {% csrf_token %}
+        <input name="isbn" class="feld" type="text" placeholder="ISBN" required> <br>
+        <input name="date" type="date" class="feld" required><br>
+        <input name="author" class="feld" type="text" placeholder="Author" required> <br>
+        <input name="image" type="file" class="feld" required><br>
+        <div>
+            <input onmousedown="validation()" type="submit" value="Add">
+        </div>
+    </form>
+
+{% endblock content %}
+</body>
+</html>

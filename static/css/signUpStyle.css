@@ -1,0 +1,143 @@
+body
+{
+    background-image: url(../image/LibraryBackground.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1000px;
+}
+.container
+{
+    height: 640px;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 10%;
+    display: inline-flex;
+}
+
+input
+{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: none;
+    padding:1%;
+    font-size: 20px;
+    width: 80%;
+}
+.in
+{
+    margin-bottom: 20px;
+    border-radius: 40px;
+    width:80% ;
+    border: 2px solid rgb(180, 180, 180) ;
+    text-align: left;
+    margin-left: 10%;
+    font-size: 20px;
+}
+i{
+    width: 5%;
+    margin-top: 3%;
+    margin-left: 2.5%;
+}
+input:focus
+{
+    outline: none;
+}
+form
+{
+    text-align: center;
+}
+.signUp
+{
+    outline: none;
+    margin: 10px;
+    margin-top: 60px;
+    height: 50px;
+    width: 60%;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    background-image: linear-gradient(to right ,#FFDD63 ,#a8a8a8 );    cursor: pointer;
+    box-shadow: 0 0 20px gray;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+.signUp:hover,.signUp:focus,.signUp:active
+{
+    box-shadow: 0 0 30px gray;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+#back
+{
+    color: white;
+    background-color: transparent;
+    border: transparent;
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 10px;
+    text-decoration: none;
+}
+.backBtn
+{
+    width: fit-content;
+    position: relative;
+    top: 30%;
+}
+.backBtn:hover,.backBtn:focus,.backBtn:active
+{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.speach
+{
+    text-align: center;
+    color: white;
+    width: 50%;
+    background-image: url(../image/LibraryBackground.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.dataIn
+{
+    width: 50%;
+    background-color: white;
+}
+h3
+{
+    font-size: 25px;
+    margin-top: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: Montserrat;
+}
+
+.cloud
+{
+    background:linear-gradient(#AE7F47, #8D847A);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bolder;
+}
+h1{
+    margin-top: 10%;
+    font-size: 50px;
+    font-family: "Century Gothic";
+}
+.success , .error{
+    list-style: none;
+    background-color: #D4AD81;
+    color: white;
+    box-shadow: #1b1b1b 12px 12px 12px;
+    text-align: center;
+    height: 40px;
+    font-size: 20px;
+    padding: 15px;
+
+}

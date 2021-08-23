@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <style>
+        .container {
+            position: absolute;
+            width: 80%;
+            background-color: white;
+            text-align: center;
+            margin-left: 10%;
+            margin-top: 5%;
+            display: inline-flex;
+            height: 80%;
+            font-family: Century Gothic;
+        }
+
+        .data {
+            width: 50%;
+            text-align: center;
+            height: 70%;
+            margin-right: 2.5%;
+            margin-left: 2.5%;
+        }
+
+        .welcome {
+            color: rgb(105, 105, 105);
+            margin-top: 5%;
+            font-size: 25px;
+            margin-bottom: 12%;
+        }
+
+        .cloud {
+            font-size: 50px;
+            background: linear-gradient(#AE7F47, #8D847A);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            font-weight: bolder;
+        }
+
+        .username {
+            margin-bottom: 20px;
+            border-radius: 25px;
+            width: 80%;
+            border: 2px solid rgb(180, 180, 180);
+            text-align: left;
+            margin-left: 10%;
+            font-size: 20px;
+        }
+
+        i {
+            width: 5%;
+            margin-top: 3%;
+            margin-left: 2.5%;
+        }
+
+        .pass, .login, .Signup {
+            margin-bottom: 20px;
+            border-radius: 25px;
+            width: 80%;
+            border: none;
+            font-size: 15px;
+        }
+
+        input {
+            margin-top: 2%;
+            margin-bottom: 2%;
+            border: none;
+            padding: 1%;
+            font-size: 20px;
+            width: 80%;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .forget {
+            text-align: right;
+            margin-right: 10%;
+            margin-top: -2.5%;
+        }
+
+        .login, .Signup {
+            margin-top: 10%;
+            font-size: 20px;
+            font-weight: bolder;
+            height: 45px;
+            background-image: linear-gradient(to right, #FFDD63, #a8a8a8);
+            cursor: pointer;
+            box-shadow: 0 0 20px gray;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property: box-shadow, transform;
+            color: #fff;
+        }
+
+        button:hover, button:focus, button:active {
+            box-shadow: 0 0 30px gray;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: 0.8s;
+        }
+
+        a {
+            margin-top: 5%;
+            text-decoration: none;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .hello {
+            width: 50%;
+        }
+
+        hr {
+            width: 50%;
+            align-items: center;
+        }
+
+        .head {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            font-weight: bolder;
+            margin-top: 25%;
+        }
+
+        .des {
+            color: white;
+            width: 70%;
+            font-size: 20px;
+            margin: 10% auto auto;
+        }
+
+        .Signup {
+            margin-top: 25%;
+        }
+    </style>
+    <script>
+        function validation(){
+            if (document.forms.email.value ==""||document.forms.password.value == ""){
+                alert("Please enter The required inputs")
+            }
+
+        }
+    </script>
+</head>
+<body>
+{% extends 'base2.html' %}
+{% block content %}
+    {% if messages %}
+        <ul class="messages ">
+            {% for m in messages %}
+                <li {% if m.tags %}class="{{ m.tags }}"{% endif %}>{{ m }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="container">
+        <div class="data">
+            <form name="forms" method="post">
+                {% csrf_token %}
+                <p class="welcome">WELCOME TO<br> <span class="cloud">Cloud</span></p>
+                <div class="username">
+                    <i class="fas fa-user"></i>
+                    <input placeholder="Email" name="email" type="email" >
+                </div>
+                <div class="username">
+                    <i class="fas fa-lock"></i>
+                    <input placeholder="Password" name="password" type="password"  minlength="8" maxlength="15">
+                </div>
+                <p class="forget"><a href="#">Forget Password ?</a></p>
+                <br>
+                <hr>
+                <button onmousedown="validation()" class="login">Log In</button>
+            </form>
+            <br>
+        </div>
+        <div class="hello">
+            <p class="head">HELLO, FRIEND!</p>
+            <p class="des">Enter your Personal Details and Start your Reading Journy With us</p>
+            <button  onclick="window.location.href='{% url 'signUp' %}'" class="Signup">Sign Up</button>
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

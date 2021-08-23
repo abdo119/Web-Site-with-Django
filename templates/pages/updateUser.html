@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Update User Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .head {
+            padding: 94px;
+            font-family: "Century Gothic", serif;
+            font-weight: bold;
+            font-size: 50px;
+            background: linear-gradient(black 42%, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .input {
+            display: inline-grid;
+            margin-top: 50px;
+            margin-bottom: 100px;
+            margin-left: 750px;
+
+        }
+
+        .Input1 {
+            font-size: 16px;
+            width: 450px;
+            height: 45px;
+            border-radius: 25px;
+            padding: 3px 3px 3px 20px;
+            background-color: #FFDD63;
+            border: none;
+            box-shadow: 0px 0px 20px black;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .back {
+            position: absolute;
+            top: 106%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-family: "Century Gothic", serif;
+            font-size: 35px;
+        }
+
+        input.Update {
+            cursor: pointer;
+            position: absolute;
+            top: 106%;
+            right: 5%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-weight: bold;
+            padding: 0;
+            font-family: "Century Gothic", serif;
+            font-size: 25px;
+            border-radius: 15px;
+        }
+
+        i {
+            color: black;
+            margin-top: 14px;
+            margin-left: 15px;
+            margin-right: 5px;
+            position: absolute;
+            font-size: 20px;
+            border-radius: 50%;
+            line-height: 35px;
+
+        }
+
+        .input input {
+            padding-left: 47px;
+        }
+
+        .fa-arrow-left {
+            position: absolute;
+            font-size: 25px;
+            color: white;
+            top: 104%;
+            left: 4.3%;
+            transform: translate(-50%, -50%);
+        }
+
+        .fa-redo-alt {
+            position: absolute;
+            font-size: 25px;
+            color: white;
+            top: 104%;
+            left: 79%;
+            transform: translate(-50%, -50%);
+        }
+
+        .rectangel {
+            margin-top: 6.4%;
+            width: 350px;
+            height: 100px;
+            border: 10px solid #FFDD63;
+            border-left: 0;
+            background-color: transparent;
+            text-align: right;
+        }
+    </style>
+    <script>
+        function validation() {
+            if (document.forms.name.value == "" || document.forms.email.value == "" || document.forms.password.value == "") {
+                alert("Please enter The required inputs")
+            }
+
+        }
+    </script>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <header>
+        <div class="body">
+            <h1 class="head">Update A User Details</h1>
+            <form name="forms" method="post" class="input">
+                {% csrf_token %}
+                <div style="display: flex">
+                    <i class="far fa-user"></i>
+                    <input name="name" type="text" placeholder="Username" class="Input1">
+                </div>
+                <br>
+                <br>
+                <div>
+                    <i class="far fa-envelope"></i>
+                    <input name="email" type="email" placeholder="Email Address" class="Input1">
+                </div>
+
+                <br>
+                <br>
+                <div>
+                    <i class="fas fa-lock"></i>
+                    <input name="password" type="text" placeholder="Password" class="Input1">
+                </div>
+                <a class="back" href="{% url 'home' %}">Back</a>
+                <input onmousedown="validation()" style="padding: 10px" type="submit" value="Update" class="Update">
+            </form>
+            <i class="fas fa-arrow-left"></i>
+            <div class="rectangel">
+                <diV class="line">
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+{% endblock content %}
+</body>
+</html>

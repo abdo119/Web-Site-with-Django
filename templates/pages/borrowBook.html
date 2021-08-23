@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrowing a Book</title>
+     <script>
+    function displayContent(pos){
+        var x= document.getElementById("hala"+pos) ;
+        x.style.display = "inline" ;
+        var y= document.getElementById("dis"+pos) ;
+        y.style.display = "none" ;
+
+
+    }
+
+</script>
+
+    <style>
+        .title{
+		margin-top: 5%;
+		text-align: center;
+		color: #FFFFFF;
+
+}
+
+div{
+	margin: 12px;
+}
+
+
+.btn ,.btn1{
+    display: inline-block;
+    border: none;
+    padding: 0.7em;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center  ;
+    cursor: pointer;
+    border-radius: 8px;
+	background-color: #FFE87C;
+	color: #000;
+	margin-bottom: 5% ;
+	width: 65%;
+}
+.CatalogTitle{
+	text-align: center;
+	margin-bottom: 1em;
+	color: #FFFFFF;
+}
+
+.product-list{
+	background-color:transparent;
+	padding:3em;
+}
+
+.product-list .card{
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	padding: 1em;
+	text-align: center;
+}
+
+
+.card img{
+	width: 90%;
+	border-radius: 5px;
+    height: 300px;
+}
+.card .ProductDescription{
+	text-align: left;
+	margin-left: 3em;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.catalogContainer{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap:20px;
+	grid-row-gap: 40px;
+}
+
+
+    </style>
+
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <header>
+        <div class="title">
+            <h1 style="background:linear-gradient(black 47%, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;font-size: 56px">Library Books</h1>
+        </div>
+    </header>
+<section class="product-list">
+
+    <div class="catalogContainer">
+       {% for ele in x%}
+           {% if ele.active %}
+                <form name="book" method="post" class="card">
+            {% csrf_token %}
+            <img src="{{ ele.img.url }}" alt="NotFound" class="ProductImage">
+            <input style="visibility: hidden;position: absolute" name="isbn" type="text"  value="{{ ele.ISBN }}">
+
+            <p class="ProductDescription">
+                <b>ISBN:</b> {{ ele.ISBN }}
+            </p>
+            <p class="ProductDescription">
+                <b>Author:</b> {{ ele.author }}
+            </p>
+            <p class="ProductDescription">
+                <b>Published Year:</b> {{ ele.publishedYear }}
+            </p>
+            <a id="dis{{ ele.id }}" class="btn" onclick="displayContent('{{ ele.id }}')">Borrow</a>
+            <br>
+            <div style="display: none" id="hala{{ ele.id }}">
+                <b>Number of days</b>
+                <br>
+                <br>
+                <input name="time" class="btn" type="number">
+                <br><br>
+                <input  type="submit" value="Borrow" class="btn1">
+            </div>
+
+        </form>
+           {% endif %}
+        {% endfor %}
+
+
+    </div>
+</section>
+
+{% endblock content %}
+
+
+</body>
+</html>
